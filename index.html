@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Card</title>
+    <script src="https://kit.fontawesome.com/ef7a3fcd6b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="profile.css">
+    <style>
+        ::-webkit-scrollbar{
+            width: 0.1px;
+        }
+        ::-webkit-scrollbar-thumb{
+            background-color: rgba(155, 244, 202, 0);
+            border-radius: 20px;
+            
+        }
+        @media (max-width:430px) {
+            .main{
+                height: 20em;
+                width: 15em;
+                background-color: aliceblue;
+                margin: 4em auto;
+                border: 2px solid white;
+                border-radius: 12px;
+                box-shadow: 0 0 4px black;
+            }
+            .inside_main{
+                margin: 1.5px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+            .photo{
+                    height: 135px;
+                    width: 99%;
+                    border-radius: 15px;
+                    background-color: rgba(66, 241, 241,0.5);
+            }
+            .content{
+                height: 180px;
+                width: 99%;
+            }
+            .inside_photo{
+                height: 125px;
+                width: 60%;
+                margin: 0 auto;
+                border: 2px solid white;
+                border-radius: 3.5em;
+            }
+            .title12{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                line-height: 0px;
+                font-size: 15px;
+            }
+            .profiles,.contact{
+                display: flex;
+                justify-content: center;
+                justify-content: space-evenly;
+                margin-top:12px;
+                font-size: 20px;
+            }
+            .mail,.message{
+                padding: 1.5px 15px;
+                border: 1px solid rgb(204 234 230);
+                border-radius: 16px;
+                background-color:rgba(142, 251, 237,0.6);
+            }
+            .mail:hover,.message:hover{
+                padding: 2.5px 18px;
+                filter: drop-shadow(1px 1px 2px rgba(32, 29, 29,0.4));
+            }
+            .userInput{
+                display: flex;
+                justify-content: center;
+                justify-content: space-evenly;
+                margin-top:20px;
+                font-size: 18px;
+            }
+            .inner_hidding_div{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .hidding_div{
+                height: 12em;
+                width: 20em;
+                border-radius: 10px;
+                box-shadow: 1px 2px 5px black;
+                background-color: rgba(143, 241, 117, 0.2);
+                padding: 2px;
+                position:absolute;
+                top: 5em;
+                z-index: 1;
+            }
+            .inner_hide{
+                height: 12em;
+                width: 20em;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+            .heading{
+                position: fixed;
+                background-color: white;
+                color: black;
+                padding: 2px 67px 2px;
+                margin:0px;
+                text-transform: capitalize;
+                border-radius: 4px;
+            }
+            .upper_main{
+                height: 8.3em;
+                width: 20em;
+                overflow: auto;
+            }
+            .user_inp{
+                position: fixed;
+                top: 15.5rem;
+            }
+            .user_inputs{
+                display: grid;
+                grid-template-columns: 200px 50px 40px;
+                column-gap: 10px;
+                margin-left: 1.5px;
+                margin-bottom: 1px;
+            }
+            .par{
+                display: inline-flex;
+                justify-content: flex-start;
+                flex-direction: column;
+                background-color: white;
+                color: black;
+                padding: 1px 7px 1px;
+                margin: 1.9px;
+                border-radius: 8px;
+                font-size: 18px;
+            }
+            .submit,.cross{
+                font-size: 13px;
+                border-radius: 3px;
+                padding: 3.5px 1px  3.5px;
+                text-align: center;
+            }
+            .share_link{
+                background-color: rgba(144, 244, 116, 0.7);
+                box-shadow: 2px 2px 5px black ;
+                height: 60px;
+                width: 350px;
+                position: absolute;
+                top: 10em;
+                z-index: 9;
+            }
+        }
+        @media (max-width:370px)  {
+            .inner_hidding_div{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }    
+            .hidding_div{
+                height: 11em;
+                width: 19em;
+                border-radius: 10px;
+                box-shadow: 1px 2px 5px black;
+                background-color: rgba(143, 241, 117, 0.2);
+                padding: 2px;
+                position:absolute;
+                top: 5em;
+                z-index: 1;
+            }
+            .inner_hide{
+                height: 11em;
+                width: 19em;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+            .heading{
+                position: fixed;
+                background-color: white;
+                color: black;
+                padding: 2px 60px 2px;
+                margin:0px;
+                text-transform: capitalize;
+                border-radius: 2px;
+            }
+            .upper_main{
+                height: 7.1em;
+                width: 19em;
+                overflow: auto;
+            }
+            .user_inp{
+                position: fixed;
+                top: 14.7rem;
+            }
+            .user_inputs{
+                display: grid;
+                grid-template-columns: 195px 46.5px 36.5px;
+                column-gap: 10px;
+                margin-left: 1px;
+                margin-bottom: 1px;
+            }
+            .par{
+                display: inline-flex;
+                justify-content: flex-start;
+                flex-direction: column;
+                background-color: white;
+                color: black;
+                padding: 1px 5px 1px;
+                margin: 1.6px;
+            }
+            .submit,.cross{
+                font-size: 12px;
+                border-radius: 2px;
+                padding: 3px 1px  3px;
+                text-align: center;
+            }
+            .share_link{
+                background-color: rgba(144, 244, 116, 0.7);
+                box-shadow: 2px 2px 5px black ;
+                height: 60px;
+                width: 300px;
+                position: absolute;
+                top: 10em;
+                z-index: 9;
+            }
+        }
+        @media (max-width:330px) {
+            .inner_hidding_div{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .hidding_div{
+                height: 10em;
+                width: 17em;
+                border-radius: 10px;
+                box-shadow: 1px 2px 5px black;
+                background-color: rgba(143, 241, 117, 0.2);
+                padding: 2px;
+                position:absolute;
+                top: 5em;
+                z-index: 1;
+            }
+            .inner_hide{
+                height: 10em;
+                width: 17em;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+            .heading{
+                position: fixed;
+                font-size: 15px;
+                background-color: white;
+                color: black;
+                padding: 1.5px 48px 1.5px;
+                margin:0px;
+                text-transform: capitalize;
+                border-radius: 4px;
+            }
+            .upper_main{
+                height: 6.5em;
+                width: 17em;
+                overflow: auto;
+            }
+            .user_inp{
+                position: fixed;
+                top: 13.9rem;
+            }
+            .user_inputs{
+                display: grid;
+                grid-template-columns: 180px 45px 34px;
+                column-gap: 5px;
+                margin-left: 1px;
+                margin-bottom: 2px;
+            }
+            .par{
+                display: inline-flex;
+                font-size: 14px;
+                justify-content: flex-start;
+                flex-direction: column;
+                background-color: white;
+                color: black;
+                padding: 1px 4px 1px;
+                margin: 1.5px;
+            }
+            .submit,.cross{
+                font-size: 11px;
+                border-radius: 1.8px;
+                padding: 1.8px 1px  1.5px;
+                text-align: center;
+            }
+            .share_link{
+                background-color: rgba(144, 244, 116, 0.7);
+                box-shadow: 2px 2px 5px black ;
+                height: 60px;
+                width: 280px;
+                position: absolute;
+                top: 10em;
+                z-index: 9;
+            }
+        }
+        @media ((min-width:270)and(max-width:300px)) {
+            .inner_hidding_div{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .hidding_div{
+                height: 10em;
+                width: 16em;
+                border-radius: 10px;
+                box-shadow: 1px 2px 5px black;
+                background-color: rgba(143, 241, 117, 0.2);
+                padding: 2px;
+                position:absolute;
+                top: 5em;
+                z-index: 1;
+            }
+            .inner_hide{
+                height: 10em;
+                width: 16em;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+            .heading{
+                position: fixed;
+                font-size: 15px;
+                background-color: white;
+                color: black;
+                padding: 1.5px 40px 1.5px;
+                margin:0px;
+                text-transform: capitalize;
+                border-radius: 4px;
+            }
+            .user_inputs{
+                display: grid;
+                grid-template-columns: 170px 43px 32px;
+                column-gap: 5px;
+                margin-left: 1px;
+                margin-bottom: 2px;
+            }
+            .share_link{
+                background-color: rgba(144, 244, 116, 0.7);
+                box-shadow: 2px 2px 5px black ;
+                height: 60px;
+                width: 260px;
+                position: absolute;
+                top: 10em;
+                z-index: 9;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="inner_hidding_div">
+        <div class="hidding_div">
+            <div class="inner_hide">
+                <div class="comment_section">
+                    <p class="heading">Leave the comments below</p><br><br>
+                    <div class="upper_main">
+                        <div class="comment_main">
+
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="user_inp">
+                     <div class="user_inputs">
+                         <input class="user_msg" type="text" id="input_label" style="border: 1px solid white;" required>
+                         <label class="submit" for="input_label" style="background-color: white; border: 1px solid white; text-align: center; border-radius: 20px; padding: 2px;">submit</label>
+                         <button class="cross" style="background-color: white;text-align: center; border: 1px solid white;border-radius: 20px;">close</button>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="inner_hidding_div">
+        <div class="share_link">
+            <div class="link_copy">
+                <div ><input class="share-input" type="text" value="abc" style="border: 1px solid white; padding: 3px;" readonly></div>
+                <div ><button class="share-button" style="background-color: white; border: 1px solid white; text-align: center; border-radius: 20px; padding: 2px;">COPY</button></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="inside_main">
+            <div class="photo">
+                <div class="inside_photo">
+                    <img src="profile.jpg" alt="manisha" class="profile_photo">
+                </div>
+            </div>
+            <div class="content">
+                <div class="title12">
+                    <div class="title1"><p><b class="sel-lect">Fresher</b></p></div>
+                    <div class="title2"><p class="sel-lect">software engineer &amp; web developer</p></div>
+                </div>
+                <div class="profiles">
+                    <div class="code1"><a href="https://www.hackerrank.com/profile/manisharatlavath" target="_blank" style="color: green;"><i class="fa-brands fa-hackerrank sel-lect"></i></a></div>
+                    <div ><a href="https://leetcode.com/Manisha-14/" target="_blank"><img src="leetcode (1).png" alt="leetcode" class="code2"></a></div>
+                    <div class="ln"><a href="https://www.linkedin.com/in/ratlavath-manisha-45baa6242/" target="_blank" style="color: blue;"><i class="fa-brands fa-linkedin sel-lect"></i></a></div>
+                    <div class="port"><a href="port.html" target="_blank" style="color: black;"><i class="fa-solid fa-briefcase sel-lect"></i></a></div>
+                </div>
+                <div class="contact">
+                    <div>
+                    <button class="mail"><a href="https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcSMSqXbdSvMbMprsCGMgcQdZjTRFblmwZhWcDmfMqTVHKxHPGxfFDSLcwBRrwHJVBzqMRxvb" style="text-decoration: none; color: black;"><b>Email</b></a></button>
+                    </div>
+                    <div>
+                    <button class="message"><a href="" style="text-decoration: none; color: black;"><b>Messege</b></a></button>
+                    </div>
+                </div>
+                <div class="userInput">
+                    <div class="like">
+                        <label for="like"><i onclick="toggle()" class="fa-solid fa-heart sel-lect transition"></i></label>
+                        <span class="count1"></span>
+                    </div>
+                    <div class="comment">
+                        <label for="comment"><i onclick="comm()" class="fa-regular fa-comment sel-lect "></i></label>
+                        <span class="count2"></span>
+                    </div>
+                    <div class="share">
+                        <label for="share"><i onclick="shaa()" class="fa-solid fa-share sel-lect"></i></label>
+                        <span class="count3"></span>
+                    </div>
+                </div>
+            </div>
+            </div>
+    </div>
+
+    <script src="profile.js"></script>
+</body>
+</html>
